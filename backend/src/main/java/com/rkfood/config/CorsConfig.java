@@ -1,6 +1,5 @@
 package com.rkfood.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -10,21 +9,15 @@ import org.springframework.web.filter.CorsFilter;
 @Configuration
 public class CorsConfig {
     
-    @Value("${spring.profiles.active:default}")
-    private String activeProfile;
-    
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         
-        // Allow specific origins in production, localhost in development
-        if ("production".equals(activeProfile)) {
-            config.addAllowedOrigin("https://frontend-xi-rose-75.vercel.app");
-            config.addAllowedOrigin("https://rkfoods.up.railway.app");
-            config.addAllowedOriginPattern("*"); // Fallback for any Vercel deployment
-        } else {
-            config.addAllowedOrigin("http://localhost:5173");
-        }
+        // Allow all origins for both development and production
+        config.addAllowedOriginPattern("*");
+        config.addAllowedOrigin("http://localhost:5173");
+        config.addAllowedOrigin("https://frontend-xi-rose-75.vercel.app");
+        config.addAllowedOrigin("https://rkfoods.up.railway.app");
         
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
