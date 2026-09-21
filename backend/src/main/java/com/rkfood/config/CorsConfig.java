@@ -17,9 +17,11 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         
-        // Allow all origins in production, restrict to localhost in development
+        // Allow specific origins in production, localhost in development
         if ("production".equals(activeProfile)) {
-            config.addAllowedOriginPattern("*");
+            config.addAllowedOrigin("https://frontend-xi-rose-75.vercel.app");
+            config.addAllowedOrigin("https://rkfoods.up.railway.app");
+            config.addAllowedOriginPattern("*"); // Fallback for any Vercel deployment
         } else {
             config.addAllowedOrigin("http://localhost:5173");
         }

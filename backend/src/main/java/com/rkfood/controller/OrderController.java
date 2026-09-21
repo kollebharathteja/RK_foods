@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"https://frontend-xi-rose-75.vercel.app", "https://rkfoods.up.railway.app", "*"})
 public class OrderController {
     
     @Autowired
