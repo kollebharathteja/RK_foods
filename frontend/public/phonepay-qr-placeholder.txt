@@ -1,0 +1,13 @@
+PhonePay QR Code Placeholder
+
+Instructions:
+1. Replace this file with your actual PhonePay QR code image
+2. Name the image file: phonepay-qr.png
+3. Place it in this directory: frontend/public/
+4. The QR code will be displayed during checkout for customers to scan
+
+Your PhonePay QR code should:
+- Be in PNG or JPG format
+- Be clear and scannable
+- Contain your PhonePay payment details
+- Be sized appropriately (recommended: 250x250 pixels or larger)
