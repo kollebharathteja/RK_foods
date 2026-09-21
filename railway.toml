@@ -1,13 +1,12 @@
 [build]
-builder = "nixpacks"
-buildCommand = "cd backend && mvn clean package -DskipTests"
+builder = "DOCKERFILE"
+dockerfilePath = "backend/Dockerfile"
+dockerContext = "backend"
 
 [deploy]
-startCommand = "cd backend && java -jar target/rk-food-backend-1.0.0.jar"
 healthcheckPath = "/api/products"
 healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
-workingDirectory = "backend"
 
 [env]
 PORT = "8080"
