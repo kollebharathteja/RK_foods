@@ -6,6 +6,8 @@ function ProductManagement() {
   const [showModal, setShowModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api';
+  const imageBaseUrl = API_BASE_URL.replace('/api', '');
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -156,7 +158,7 @@ function ProductManagement() {
                 <td>
                   {product.imageUrl && (
                     <img
-                      src={`http://localhost:8080${product.imageUrl}`}
+                      src={`${imageBaseUrl}${product.imageUrl}`}
                       alt={product.name}
                       className="table-image"
                     />

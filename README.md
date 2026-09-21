@@ -44,6 +44,30 @@ npm run dev
 - Admin dashboard: http://localhost:5173/admin
 - Backend API: http://localhost:8080/api
 
+## 🌐 Cloud Deployment
+
+### Production Deployment
+
+For production deployment, we recommend:
+- **Backend**: Railway (Spring Boot + MongoDB)
+- **Frontend**: Vercel (React + Vite)
+
+See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for detailed deployment instructions.
+
+### Quick Deployment Steps
+
+1. **Backend (Railway)**:
+   - Push code to GitHub
+   - Create new project on Railway from GitHub repo
+   - Add environment variable: `SPRING_DATA_MONGODB_URI=mongodb+srv://RK_foods:RKFoods123@smart-campus.abcde.mongodb.net/rkfood?retryWrites=true&w=majority`
+   - Deploy and note the Railway URL
+
+2. **Frontend (Vercel)**:
+   - Push code to GitHub
+   - Create new project on Vercel from GitHub repo
+   - Add environment variable: `VITE_API_BASE_URL=https://your-railway-url.up.railway.app/api`
+   - Deploy and access your live application
+
 ## Tech Stack
 
 ### Backend

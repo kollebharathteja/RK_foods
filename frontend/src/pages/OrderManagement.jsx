@@ -6,6 +6,8 @@ function OrderManagement() {
   const [filter, setFilter] = useState('all');
   const [loading, setLoading] = useState(true);
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api';
+  const imageBaseUrl = API_BASE_URL.replace('/api', '');
 
   useEffect(() => {
     loadOrders();
@@ -205,7 +207,7 @@ function OrderManagement() {
                   <div className="payment-screenshot">
                     <strong>Payment Screenshot:</strong>
                     <img
-                      src={`http://localhost:8080${selectedOrder.paymentScreenshot}`}
+                      src={`${imageBaseUrl}${selectedOrder.paymentScreenshot}`}
                       alt="Payment Screenshot"
                       className="screenshot-image"
                     />

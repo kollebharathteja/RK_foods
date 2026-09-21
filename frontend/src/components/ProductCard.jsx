@@ -1,9 +1,12 @@
 function ProductCard({ product, onAddToCart }) {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api';
+  const imageBaseUrl = API_BASE_URL.replace('/api', '');
+
   return (
     <div className="product-card">
       {product.imageUrl && (
         <img
-          src={`http://localhost:8080${product.imageUrl}`}
+          src={`${imageBaseUrl}${product.imageUrl}`}
           alt={product.name}
           className="product-image"
         />
