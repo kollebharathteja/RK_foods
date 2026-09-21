@@ -1,9 +1,8 @@
 [build]
-builder = "DOCKERFILE"
-dockerfilePath = "Dockerfile"
+builder = "nixpacks"
 
 [deploy]
-startCommand = "java -jar app.jar"
+startCommand = "java -jar target/rk-food-backend-1.0.0.jar"
 healthcheckPath = "/api/products"
 healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
