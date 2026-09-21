@@ -9,14 +9,17 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    console.log('Login attempt:', { email, password });
     
     // Hardcoded admin credentials (in production, this should be handled by backend)
     if (email === 'bharathteja9192@gmail.com' && password === 'Kollebh@r@th9192') {
       // Store authentication status
       localStorage.setItem('isAdminAuthenticated', 'true');
       localStorage.setItem('adminEmail', email);
+      console.log('Login successful, navigating to admin');
       navigate('/admin');
     } else {
+      console.log('Invalid credentials');
       setError('Invalid credentials');
     }
   };
