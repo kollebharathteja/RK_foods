@@ -1,12 +1,13 @@
 [build]
 builder = "nixpacks"
-buildCommand = "mvn clean package -DskipTests"
+buildCommand = "cd backend && mvn clean package -DskipTests"
 
 [deploy]
-startCommand = "java -jar target/rk-food-backend-1.0.0.jar"
+startCommand = "cd backend && java -jar target/rk-food-backend-1.0.0.jar"
 healthcheckPath = "/api/products"
 healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
+workingDirectory = "backend"
 
 [env]
 PORT = "8080"

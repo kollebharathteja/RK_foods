@@ -19,10 +19,14 @@ This guide will help you deploy the RK Foods application:
 
 1. Ensure your backend code is pushed to GitHub
 2. The following files have been created for you:
-   - `backend/Dockerfile` - Docker configuration
-   - `backend/railway.toml` - Railway-specific configuration
+   - `railway.toml` (root) - Main Railway configuration that points to backend directory
+   - `backend/Dockerfile` - Docker configuration (fallback option)
+   - `backend/railway.toml` - Backend-specific Railway configuration
+   - `backend/Procfile` - Process file for Railway
    - `backend/.env.example` - Environment variables template
-   - `backend/.dockerignore` - Files to exclude from Docker build
+   - `backend/.railwayignore` - Files to exclude from Railway build
+
+**Important**: The root `railway.toml` file tells Railway to build from the `backend/` directory since this is a monorepo with both frontend and backend.
 
 ### Step 2: Deploy to Railway
 
@@ -196,10 +200,17 @@ Your backend has CORS configured to allow requests from any origin. For producti
 
 ### Build Issues
 
+**Problem**: Railpack build fails on Railway
+- Railway may fail with Dockerfile configuration
+- Solution: The project now uses Nixpacks (default Railway builder)
+- `railway.toml` is configured to use Nixpacks with Maven support
+- If Dockerfile is needed, you can change `builder = "DOCKERFILE"` in `railway.toml`
+
 **Problem**: Docker build fails on Railway
 - Check `Dockerfile` syntax
 - Verify Maven dependencies are correct
 - Ensure Java version compatibility (Java 17)
+- Check if the jar file name matches what's specified in `Procfile`
 
 **Problem**: Vercel build fails
 - Check `vercel.json` configuration
