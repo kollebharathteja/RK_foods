@@ -53,7 +53,6 @@ backend/uploads/
 .env.development.local
 .env.test.local
 .env.production.local
-!.env.production
 
 # MongoDB Atlas credentials (security)
 backend/src/main/resources/application.properties
