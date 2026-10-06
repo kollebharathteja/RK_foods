@@ -128,19 +128,19 @@ function CartModal({ isOpen, onClose, cart, onUpdateQuantity, onRemove, total })
                 <div className="qr-section">
                   <p>Scan the QR code to pay ₹{total.toFixed(2)}</p>
                   <div className="qr-placeholder">
-                    {/* Add your PhonePay QR code image here */}
                     <img 
-                      src="/phonepay-qr.png" 
+                      src="/phonepay-qr.jpeg" 
                       alt="PhonePay QR Code"
                       className="qr-code"
+                      style={{ width: 250, maxWidth: '100%', display: 'block', margin: '0 auto' }}
                       onError={(e) => {
                         e.target.style.display = 'none';
                         e.target.nextSibling.style.display = 'block';
                       }}
                     />
                     <div className="qr-fallback" style={{display: 'none'}}>
-                      <p>PhonePay QR Code</p>
-                      <p>Place your QR code image at: public/phonepay-qr.png</p>
+                      <p>QR code could not be loaded.</p>
+                      <p>Please contact us to complete your payment.</p>
                     </div>
                   </div>
                 </div>
