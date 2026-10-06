@@ -19,14 +19,15 @@ This guide will help you deploy the RK Foods application:
 
 1. Ensure your backend code is pushed to GitHub
 2. The following files have been created for you:
-   - `railway.toml` (root) - Main Railway configuration that points to backend directory
-   - `backend/Dockerfile` - Docker configuration (fallback option)
+   - `Dockerfile` (root) - Main Docker configuration that builds from backend directory
+   - `railway.toml` (root) - Railway configuration using root Dockerfile
+   - `backend/Dockerfile` - Backend-specific Docker configuration (legacy)
    - `backend/railway.toml` - Backend-specific Railway configuration
    - `backend/Procfile` - Process file for Railway
    - `backend/.env.example` - Environment variables template
    - `backend/.railwayignore` - Files to exclude from Railway build
 
-**Important**: The root `railway.toml` file tells Railway to build from the `backend/` directory since this is a monorepo with both frontend and backend.
+**Important**: The root `Dockerfile` handles the monorepo structure by copying the backend directory and building from there.
 
 ### Step 2: Deploy to Railway
 
